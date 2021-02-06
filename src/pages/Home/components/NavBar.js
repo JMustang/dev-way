@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
 
 const tags = [
   { id: 2, name: "javascript" },
-  { id: 6, name: "nodejs" },
-  { id: 1, name: "reactjs" },
-  { id: 3, name: "nextjs" },
+  { id: 6, name: "node.js" },
+  { id: 1, name: "react.js" },
+  { id: 3, name: "next.js" },
   { id: 4, name: "react native" },
   { id: 5, name: "flutter" },
 ];
