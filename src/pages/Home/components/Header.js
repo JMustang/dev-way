@@ -20,10 +20,10 @@ const useStyles = makeStyles({
     alignItems: "center",
   },
   button: {
-    marginRight: 10,
+    marginRight: 20,
   },
   bell: {
-    marginRight: 10,
+    marginRight: 20,
   },
 });
 
