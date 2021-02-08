@@ -9,7 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "#03254c",
+    background: "#f5f5f5",
     padding: theme.spacing(2),
     marginRight: theme.spacing(2),
     width: 275,

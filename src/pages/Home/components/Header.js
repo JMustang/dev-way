@@ -5,12 +5,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import { Bell } from "react-feather";
+import { Bell, GitHub, Linkedin } from "react-feather";
 import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles({
   img: {
-    maxHeight: 45,
+    maxHeight: 60,
   },
   grow: {
     flexGrow: 1,
@@ -20,10 +20,18 @@ const useStyles = makeStyles({
     alignItems: "center",
   },
   button: {
-    marginRight: 20,
+    color: "#000",
+    background: "linear-gradient(to bottom left, #33ccff 0%, #cc66ff 64%)",
+    marginRight: 25,
   },
   bell: {
-    marginRight: 20,
+    marginRight: 25,
+  },
+  Linkedin: {
+    marginRight: 25,
+  },
+  GitHub: {
+    marginRight: 25,
   },
 });
 
@@ -42,6 +50,12 @@ function Header() {
           >
             Novo Post
           </Button>
+          <SvgIcon className={classes.Linkedin}>
+            <Linkedin></Linkedin>
+          </SvgIcon>
+          <SvgIcon className={classes.GitHub}>
+            <GitHub></GitHub>
+          </SvgIcon>
           <SvgIcon className={classes.bell}>
             <Bell></Bell>
           </SvgIcon>
