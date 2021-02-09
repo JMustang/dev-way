@@ -9,13 +9,15 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "#f5f5f5",
+    background: "#474f97",
     padding: theme.spacing(2),
     marginRight: theme.spacing(2),
     width: 275,
   },
   button: {
     width: "100%",
+    color: "#000",
+    background: "linear-gradient(to bottom left, #33ccff 0%, #cc66ff 64%)",
   },
 }));
 
@@ -41,7 +43,7 @@ function NavBar() {
 
   return (
     <Paper className={classes.root}>
-      <Button variant="outlined" color="secondary" className={classes.button}>
+      <Button variant="contained" color="secondary" className={classes.button}>
         Registre-se
       </Button>
       <ListSubheader>{"Tags em alta"}</ListSubheader>
