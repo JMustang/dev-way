@@ -15,6 +15,7 @@ import MessageIcon from "@material-ui/icons/Message";
 const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: theme.spacing(2),
+    background: "#939ed5",
   },
   subheader: {
     display: "flex",

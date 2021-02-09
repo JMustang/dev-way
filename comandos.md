@@ -5,3 +5,4 @@ yarn add @material-ui/core
 yarn add @material-ui/styles
 yarn add react-feather
 yarn add @material-ui/icons
+yarn add react-router@next react-router-dom@next

@@ -33,21 +33,20 @@ const useStyles = makeStyles({
   GitHub: {
     marginRight: 25,
   },
+  appbar: {
+    background: "#1a237e",
+  },
 });
 
 function Header() {
   const classes = useStyles();
   return (
-    <AppBar position="fixed" color="inherit">
+    <AppBar position="fixed" color="inherit" className={classes.appbar}>
       <Toolbar>
         <img src="/images/logo.png" alt="logo" className={classes.img} />
         <div className={classes.grow}></div>
         <div className={classes.userSection}>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-          >
+          <Button variant="outlined" color="primary" className={classes.button}>
             Novo Post
           </Button>
           <SvgIcon className={classes.Linkedin}>
