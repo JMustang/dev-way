@@ -20,8 +20,9 @@ const useStyles = makeStyles({
     alignItems: "center",
   },
   button: {
-    color: "#000",
-    background: "linear-gradient(to bottom left, #33ccff 0%, #cc66ff 64%)",
+    borderRadius: 4,
+    color: "#fff",
+    //background: "linear-gradient(to bottom left, #33ccff , #cc66ff)",
     marginRight: 25,
   },
   bell: {
