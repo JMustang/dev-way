@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
   button: {
     borderRadius: 4,
-    color: "#fff",
+    color: "#000",
     //background: "linear-gradient(to bottom left, #33ccff , #cc66ff)",
     marginRight: 25,
   },
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
     marginRight: 25,
   },
   appbar: {
-    background: "#1a237e",
+    background: "#DBDCDE",
   },
 });
 
