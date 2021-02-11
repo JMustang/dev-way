@@ -1,67 +1,138 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import Avatar from "@material-ui/core/Avatar";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import TextField from "@material-ui/core/TextField";
+import { Button, Link } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
-    flexDirection: "row",
+    //   display: "flex",
+    //   flexDirection: "row",
     height: "100vh",
   },
-  left: {
-    background: "red",
-    flexBasis: "58%",
-
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+  image: {
+    background: theme.palette.primary.main,
+    backgroundImage: "url(/images/background.svg)",
+    backgroundPosition: "center",
+    backgroundSize: "100% 100%",
+    backgroundRepeat: "none",
+    padding: theme.spacing(2),
+    textAlign: "center",
   },
-  right: {
-    background: "green",
-    flexBasis: "42%",
+  avatar: {
+    background: theme.palette.primary.main,
+    marginBottom: theme.spacing(1),
+  },
+  button: {
+    marginTop: theme.spacing(1),
   },
   form: {
-    display: "flex",
-    flexDirection: "column",
-    margin: "64px 32px",
-    alignItems: "center",
+    margin: theme.spacing(2, 4),
   },
 }));
+
+function Copyright() {
+  return (
+    <Typography variant="body2" align="center">
+      {"Copyright ©"}{" "}
+      <a color="inherit" href="https://github.com/JMustang">
+        Junior Carvalho.
+      </a>{" "}
+      {new Date().getFullYear()}
+    </Typography>
+  );
+}
 
 function SignIn() {
   const classes = useStyles();
 
   return (
-    /* flex conteiner */
-    <div className={classes.root}>
-      {/* flex item conteiner*/}
-      <div className={classes.left}>
-        <Typography style={{ color: "#fff", fontSize: 35, lineHeight: "45px" }}>
+    <Grid container className={classes.root}>
+      <Grid
+        item
+        container
+        direction="column"
+        //justify="center"
+        alignItems="center"
+        md={7}
+        className={classes.image}
+      >
+        <Typography
+          style={{
+            color: "#000",
+            fontSize: 35,
+            marginTop: "4rem",
+            lineHeight: "45px",
+          }}
+        >
           <strong>Aprenda a programar de um jeito facil.</strong>
         </Typography>
         <Typography
           variant="body2"
           style={{
-            color: "rgb(255,255,255, 0.7)",
-            marginTop: 30,
+            color: "#000",
+            marginTop: 20,
             fontSize: 15,
             lineHeight: "30px",
           }}
         >
           Aprenda com desafios e prática.
         </Typography>
-      </div>
-
-      {/* flex item */}
-      <div className={classes.right}>
-        <form className={classes.form}>
-          <h4>Acesso</h4>
-          <input type="text" />
-          <input type="password" />
-        </form>
-      </div>
-    </div>
+      </Grid>
+      <Grid item md={5}>
+        <Box display="flex" flexDirection="column" alignItems="center" mt={8}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography variant="h5">Acesso</Typography>
+          <form className={classes.form}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <Button
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.button}
+            >
+              Entrar
+            </Button>
+            <Grid container>
+              <Grid item>
+                <Link>Esqueceu a senha? </Link>
+              </Grid>
+              <Grid item>
+                <Link> Não tem uma conta? Registre-se!</Link>
+              </Grid>
+            </Grid>
+          </form>
+          <Copyright />
+        </Box>
+      </Grid>
+    </Grid>
   );
 }
 
