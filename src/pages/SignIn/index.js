@@ -7,6 +7,8 @@ import Avatar from "@material-ui/core/Avatar";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import TextField from "@material-ui/core/TextField";
 import { Button, Link } from "@material-ui/core";
+//import { useNavigate } from "react-router-dom";
+import axios from "../../utils/axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,6 +51,17 @@ function Copyright() {
 
 function SignIn() {
   const classes = useStyles();
+  //const navigate = useNavigate();
+
+  async function handleSignIn() {
+    // aqui faz a chamada a api
+    // se retorno ok, direciona para home page
+    // senao exibe mensagem para o usuario
+    // axios.post("/api/home/login")
+    // .then((response) => console.log(response));
+    const response = await axios.post("/api/home/login");
+    console.log(response);
+  }
 
   return (
     <Grid container className={classes.root}>
@@ -117,6 +130,7 @@ function SignIn() {
               variant="contained"
               color="primary"
               className={classes.button}
+              onClick={handleSignIn}
             >
               Entrar
             </Button>
