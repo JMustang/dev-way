@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -7,13 +7,13 @@ import Avatar from "@material-ui/core/Avatar";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import TextField from "@material-ui/core/TextField";
 import { Button, Link } from "@material-ui/core";
-//import { useNavigate } from "react-router-dom";
-import axios from "../../utils/axios";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import { useNavigate } from "react-router-dom";
+//import axios from "../../utils/axios";
+import AuthService from "../../services/authService";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    //   display: "flex",
-    //   flexDirection: "row",
     height: "100vh",
   },
   image: {
@@ -51,16 +51,19 @@ function Copyright() {
 
 function SignIn() {
   const classes = useStyles();
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState();
 
   async function handleSignIn() {
-    // aqui faz a chamada a api
-    // se retorno ok, direciona para home page
-    // senao exibe mensagem para o usuario
-    // axios.post("/api/home/login")
-    // .then((response) => console.log(response));
-    const response = await axios.post("/api/home/login");
-    console.log(response);
+    try {
+      await AuthService.signIn(email, password);
+      //200
+      navigate("/");
+    } catch (error) {
+      setErrorMessage(error.response.data.message);
+    }
   }
 
   return (
@@ -69,7 +72,6 @@ function SignIn() {
         item
         container
         direction="column"
-        //justify="center"
         alignItems="center"
         md={7}
         className={classes.image}
@@ -113,6 +115,8 @@ function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
             <TextField
               variant="outlined"
@@ -124,6 +128,8 @@ function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
             />
             <Button
               fullWidth
@@ -134,6 +140,9 @@ function SignIn() {
             >
               Entrar
             </Button>
+            {errorMessage && (
+              <FormHelperText error>{errorMessage}</FormHelperText>
+            )}
             <Grid container>
               <Grid item>
                 <Link>Esqueceu a senha? </Link>
