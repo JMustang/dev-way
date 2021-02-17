@@ -8,6 +8,8 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import { Bell, GitHub, Linkedin } from "react-feather";
 import Avatar from "@material-ui/core/Avatar";
 
+import authService from "../../../services/authService";
+
 const useStyles = makeStyles({
   img: {
     maxHeight: 60,
@@ -22,7 +24,7 @@ const useStyles = makeStyles({
   button: {
     borderRadius: 4,
     color: "#000",
-    //background: "linear-gradient(to bottom left, #33ccff , #cc66ff)",
+    background: "#2196f3",
     marginRight: 25,
   },
   bell: {
@@ -41,6 +43,9 @@ const useStyles = makeStyles({
 
 function Header() {
   const classes = useStyles();
+
+  const user = authService.getUser();
+
   return (
     <AppBar position="fixed" color="inherit" className={classes.appbar}>
       <Toolbar>
@@ -59,7 +64,7 @@ function Header() {
           <SvgIcon className={classes.bell}>
             <Bell></Bell>
           </SvgIcon>
-          <Avatar alt="Remy Sharp" src="" />
+          <Avatar alt="Remy Sharp" src={user && user.avatar} />
         </div>
         {/* <div>
           <a href="/">The dev way</a>
