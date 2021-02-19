@@ -9,3 +9,4 @@
 - yarn add axios
 - yarn add axios-mock-adapter
 - yarn add redux react-redux
+- yarn add redux-thunk

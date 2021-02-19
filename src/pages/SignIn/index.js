@@ -63,13 +63,9 @@ function SignIn() {
   async function handleSignIn() {
     try {
       await dispatch(signIn(email, password));
-
-      // await AuthService.signIn(email, password);
-      //200
-      // navigate("/");
+      navigate("/");
     } catch (error) {
-      console.log(error);
-      // setErrorMessage(error.response.data.message);
+      setErrorMessage(error.response.data.message);
     }
   }
 
