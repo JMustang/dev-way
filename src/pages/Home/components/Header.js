@@ -8,8 +8,6 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import { Bell, GitHub, Linkedin } from "react-feather";
 import Avatar from "@material-ui/core/Avatar";
 
-import authService from "../../../services/authService";
-
 const useStyles = makeStyles({
   img: {
     maxHeight: 60,
@@ -44,7 +42,7 @@ const useStyles = makeStyles({
 function Header() {
   const classes = useStyles();
 
-  const user = authService.getUser();
+  const user = null;
 
   return (
     <AppBar position="fixed" color="inherit" className={classes.appbar}>

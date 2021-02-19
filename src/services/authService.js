@@ -7,15 +7,13 @@ class AuthService {
         .post("/api/home/login", { email, password })
         .then((response) => {
           if (response.data.user) {
-            this.setUser(response.data.user);
+            // this.setUser(response.data.user);
             resolve(response.data.user);
           } else {
             reject(response.data.error);
           }
         })
-        .catch((error) => {
-          reject(error);
-        });
+        .catch((error) => reject(error));
     });
   };
 
