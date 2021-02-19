@@ -7,8 +7,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { Bell, GitHub, Linkedin } from "react-feather";
 import Avatar from "@material-ui/core/Avatar";
-
-import authService from "../../../services/authService";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles({
   img: {
@@ -44,7 +43,7 @@ const useStyles = makeStyles({
 function Header() {
   const classes = useStyles();
 
-  const user = authService.getUser();
+  const user = useSelector((state) => state.user);
 
   return (
     <AppBar position="fixed" color="inherit" className={classes.appbar}>
@@ -66,17 +65,6 @@ function Header() {
           </SvgIcon>
           <Avatar alt="Remy Sharp" src={user && user.avatar} />
         </div>
-        {/* <div>
-          <a href="/">The dev way</a>
-          <input type="text"></input>
-        </div>
-        <div>
-          <Button variant="contained" color="secondary">
-            Novo Post
-          </Button>
-          <span>img1</span>
-          <span>img2</span>
-        </div> */}
       </Toolbar>
     </AppBar>
   );

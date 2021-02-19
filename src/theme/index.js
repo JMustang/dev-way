@@ -5,6 +5,9 @@ import typography from "./typography";
 const theme = createMuiTheme({
   palette,
   typography,
+  //typography: {
+  // useNextVariants: true,
+  // },
 });
 
 export default theme;
